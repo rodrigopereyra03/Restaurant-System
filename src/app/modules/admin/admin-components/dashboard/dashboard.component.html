@@ -1,0 +1,32 @@
+<div style ="background: linear-gradient(rgba(5,7,12,0.95), rgba(5,7,12,0.5));">
+
+<form nz-form [formGroup]="validateForm" style="padding-top: 15px; margin-bottom: 15px; text-align: center;" (submit)="sumbitForm()" >
+    <input nz-input placeholder="Enter Keyword to search" nzSize="large" style="width: 20%;" formControlName="title"/>
+    <button nz-button [nzSize]="size" nzType="primary" style="margin-left: 15px; background-color: #000000; border: none; color:white;" [disabled]="validateForm.invalid">Search</button>
+</form>
+
+
+<div style="min-height: 91vh;">
+    <div style="padding-top: 10px;"></div>
+
+    <div style="margin-top: 10px;" class="child" *ngFor="let category of categories">
+        <div nz-row>
+            <div nz-col nzSpan="8">
+                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="category.processedImg" alt="profile"/>
+            </div>
+            <div nz-col nzSpan="16">
+                <h2 style="cursor: pointer; color: #000000;">{{category.name}}</h2>
+                <hr>
+                <h5>Description: <b>{{category.description}}</b></h5>
+                <hr>
+                <div style="float: right;">
+                    <button style="background-color: #000000; border: none;" nzSize="small" nz-button nzType="primary" routerLink="/admin/{{category.id}}/products">View Products</button>
+                    <button style="margin-left: 10px; background-color: #75e74075; border: none; color: #000000;" nzSize="small" nz-button nzType="primary" routerLink="/admin/{{category.id}}/product">Post Product</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+</div>
+</div>

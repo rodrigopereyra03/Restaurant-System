@@ -1,0 +1,28 @@
+<div style ="background: linear-gradient(rgba(5,7,12,0.95), rgba(5,7,12,0.5));">
+<form nz-form [formGroup]="validateForm" style="padding-top: 15px; margin-bottom: 15px; text-align: center;" (submit)="sumbitForm()">
+    <input nz-input placeholder="Enter Keyword to search" nzSize="large" style="width: 20%;" formControlName="title"/>
+    <button nz-button [nzSize]="size" nzType="primary" style="margin-left: 15px; background-color: #000000; border: none; color: white;" [disabled]="validateForm.invalid">Search</button>
+
+</form>
+
+<div style=" min-height: 85.6vh;">
+    <div style="padding-top: 10px;"></div>
+
+    <div style="margin-top: 10px;" class="child" *ngFor="let products of Products">
+        <div nz-row>
+            <div nz-col nzSpan="8">
+                <img class="profile" style="height: 130px; width: 200px; border-radius: 10;" alt="profile" [src]="products.processedImg"/>
+            </div>
+            <div nz-col nzSpan="16">
+                <h2 style="cursor: pointer; color: #000000;">{{products.name}}</h2>
+                <hr>
+                <h5>- Price: <b>${{products.price}}</b>
+                    - Description: <b>{{products.description}}</b>
+                    - Category: <b>{{products.categoryName}}</b>
+                </h5>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
